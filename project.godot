@@ -30,6 +30,10 @@ config/name="Quiz de Prueba"
 run/main_scene="res://Scenes/level_game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Gamehandler="*res://gamehandler.gd"
+
 [display]
 
 window/size/width=448
