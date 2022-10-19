@@ -11,11 +11,15 @@ var quiz_shuffle := []
 onready var question_texts := $question_info/txt_question
 
 
+#func perder_vida():
+	#Gamehandler.vidas_jugador -= 1
+
 #carga el juego 
 func _ready() -> void:
 	for _button in $question_holder.get_children():
 		buttons.append(_button)
-
+	Gamehandler.time_left = 60	
+	#Gamehandler.disminuir_tiempo()
 	quiz_shuffle = randomize_array(bd_quiz.bd)
 	Gamehandler.puntos = 0
 	Gamehandler.update_puntos()
@@ -30,8 +34,18 @@ func _ready() -> void:
 #carga los distintas preguntas
 func load_quiz() -> void:
 	if index >= bd_quiz.bd.size():
-		print("termino el juego") #aca agregar funcion que muestre estrellas y puntaje
+		if Gamehandler.puntos <= 299:
+			#mostrar ventana que perdio
+			_perdiste_por_puntos()	
+		else:
+			#asignar puntaje a puntaje global
+			#mostrar ventana que gano
+			_on_Letters_youwin_quiz()			
+						
 		return
+	
+		
+	
 	
 	#randomiza el orden de las preguntas
 	question_texts.text = str(quiz_shuffle[index].question_info)
@@ -67,8 +81,8 @@ func buttons_answer(button) -> void:
 		else:
 			Gamehandler.puntos += 0
 			Gamehandler.update_puntos()
-			button.modulate = color_wrong	
-				
+			button.modulate = color_wrong					 		
+			
 
 		
 
@@ -96,3 +110,21 @@ func randomize_array(array: Array) -> Array:
 func _on_Timer_timeout():
 	Gamehandler.tiempo += 1
 	Gamehandler.update_time()
+	
+
+func _on_top_bar_minigames_seacaboeltiempo():
+	Gamehandler.perder_vida()
+	get_tree().change_scene("res://main_map/Main_scene.tscn")
+	#emit_signal("game_over")
+	print("se te acabo el tiempo")
+	
+func _on_Letters_youwin_quiz():
+	get_tree().change_scene("res://main_map/Main_scene.tscn")
+	print("ganaste")
+	if(Gamehandler.puntos > Gamehandler.pnivel2):
+		Gamehandler.pnivel2 = Gamehandler.puntos
+		
+func _perdiste_por_puntos():
+	Gamehandler.perder_vida()
+	get_tree().change_scene("res://main_map/Main_scene.tscn")
+	print("perdiste por puntos")

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = ""
+question_info = "¿Que significa HCI?"
 type = 0
-options = [ "A", "B", "C", "D" ]
-correct = "B"
+options = [ "Human Customer Interaction", "Hyper-Converged Infrastructure", "Human-Computer Interaction", "Ninguna " ]
+correct = "Human-Computer Interaction"

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = "TEST 2 TEST 2 TEST 2"
+question_info = "¿Cuantas heuristicas de Nielsen existen?"
 type = 0
-options = [ "A", "B", "C", "D" ]
-correct = "D"
+options = [ "10", "3", "25", "2" ]
+correct = "10"

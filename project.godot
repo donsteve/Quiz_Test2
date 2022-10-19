@@ -38,10 +38,8 @@ Gamehandler="*res://gamehandler.gd"
 
 window/size/width=448
 window/size/height=704
-window/size/test_width=480
-window/size/test_height=853
+window/handheld/orientation="portrait"
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
 
 [gui]
 
