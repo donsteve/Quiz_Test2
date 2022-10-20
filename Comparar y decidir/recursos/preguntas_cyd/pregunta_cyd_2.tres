@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Comparar y decidir/recursos/res_cyd.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+question_info_cyd = ""
+type = 0
+options = [  ]
