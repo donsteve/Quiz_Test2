@@ -3,8 +3,8 @@ extends Node
 export(Resource) var bd_cyd
 export(Resource) var bd_cyd2
 export(Resource) var bd_cyd3
-export(Color) var color_right
-export(Color) var color_wrong
+export(Texture) var color_right
+export(Texture) var color_wrong
 
 var buttons := []
 var index := 0
@@ -127,21 +127,21 @@ func buttons_answer(button) -> void:
 			if bd_cyd.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 100
 				Gamehandler.update_puntos()
-				button.modulate = color_right
+				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
 				Gamehandler.update_puntos()
-				button.modulate = color_wrong
+				button.texture_normal = color_wrong
 				
 		elif Gamehandler.tiempo > 12: 
 			if bd_cyd.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 40
 				Gamehandler.update_puntos()
-				button.modulate = color_right
+				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
 				Gamehandler.update_puntos()
-				button.modulate = color_wrong					 		
+				button.texture_normal = color_wrong					 		
 				
 
 			
@@ -165,21 +165,21 @@ func buttons_answer(button) -> void:
 			if bd_cyd2.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 100
 				Gamehandler.update_puntos()
-				button.modulate = color_right
+				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
 				Gamehandler.update_puntos()
-				button.modulate = color_wrong
+				button.texture_normal = color_wrong
 				
 		elif Gamehandler.tiempo > 12: 
 			if bd_cyd2.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 40
 				Gamehandler.update_puntos()
-				button.modulate = color_right
+				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
 				Gamehandler.update_puntos()
-				button.modulate = color_wrong					 		
+				button.texture_normal = color_wrong					 		
 				
 
 			
@@ -203,21 +203,21 @@ func buttons_answer(button) -> void:
 			if bd_cyd3.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 100
 				Gamehandler.update_puntos()
-				button.modulate = color_right
+				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
 				Gamehandler.update_puntos()
-				button.modulate = color_wrong
+				button.texture_normal = color_wrong
 				
 		elif Gamehandler.tiempo > 12: 
 			if bd_cyd3.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 40
 				Gamehandler.update_puntos()
-				button.modulate = color_right
+				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
 				Gamehandler.update_puntos()
-				button.modulate = color_wrong					 		
+				button.texture_normal = color_wrong					 		
 				
 
 			
