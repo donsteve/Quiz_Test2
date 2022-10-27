@@ -22,16 +22,19 @@ func _ready() -> void:
 	if Gamehandler.niv_cyd == 3:
 		quiz_shuffle = randomize_array(bd_cyd.bd)
 		Gamehandler.puntos = 0
+		Gamehandler.npregunta = 0
 		Gamehandler.update_puntos()
 		load_quiz()
 	elif Gamehandler.niv_cyd == 6:
 		quiz_shuffle = randomize_array(bd_cyd2.bd)
 		Gamehandler.puntos = 0
+		Gamehandler.npregunta = 0
 		Gamehandler.update_puntos()
 		load_quiz()
 	elif Gamehandler.niv_cyd == 9:
 		quiz_shuffle = randomize_array(bd_cyd3.bd)
 		Gamehandler.puntos = 0
+		Gamehandler.npregunta = 0
 		Gamehandler.update_puntos()
 		load_quiz()	
 
@@ -126,20 +129,28 @@ func buttons_answer(button) -> void:
 		if Gamehandler.tiempo <= 12:
 			if bd_cyd.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 100
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()
 				Gamehandler.update_puntos()
 				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()
 				Gamehandler.update_puntos()
 				button.texture_normal = color_wrong
 				
 		elif Gamehandler.tiempo > 12: 
 			if bd_cyd.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 40
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()			
 				Gamehandler.update_puntos()
 				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()				
 				Gamehandler.update_puntos()
 				button.texture_normal = color_wrong					 		
 				
@@ -164,20 +175,28 @@ func buttons_answer(button) -> void:
 		if Gamehandler.tiempo <= 12:
 			if bd_cyd2.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 100
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()				
 				Gamehandler.update_puntos()
 				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()				
 				Gamehandler.update_puntos()
 				button.texture_normal = color_wrong
 				
 		elif Gamehandler.tiempo > 12: 
 			if bd_cyd2.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 40
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()				
 				Gamehandler.update_puntos()
 				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()				
 				Gamehandler.update_puntos()
 				button.texture_normal = color_wrong					 		
 				
@@ -202,20 +221,28 @@ func buttons_answer(button) -> void:
 		if Gamehandler.tiempo <= 12:
 			if bd_cyd3.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 100
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()				
 				Gamehandler.update_puntos()
 				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()				
 				Gamehandler.update_puntos()
 				button.texture_normal = color_wrong
 				
 		elif Gamehandler.tiempo > 12: 
 			if bd_cyd3.bd[index].correct == button.texture_normal:
 				Gamehandler.puntos += 40
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()				
 				Gamehandler.update_puntos()
 				button.texture_normal = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
+				Gamehandler.update_npregunta()				
 				Gamehandler.update_puntos()
 				button.texture_normal = color_wrong					 		
 				

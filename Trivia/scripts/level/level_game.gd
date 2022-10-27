@@ -25,16 +25,19 @@ func _ready() -> void:
 	if Gamehandler.niv_quiz == 2:
 		quiz_shuffle = randomize_array(bd_quiz.bd)
 		Gamehandler.puntos = 0
+		Gamehandler.npregunta = 0 
 		Gamehandler.update_puntos()
 		load_quiz()
 	elif Gamehandler.niv_quiz == 5:
 		quiz_shuffle = randomize_array(bd_quiz_2.bd)
 		Gamehandler.puntos = 0
+		Gamehandler.npregunta = 0
 		Gamehandler.update_puntos()
 		load_quiz()
 	elif Gamehandler.niv_quiz == 8:
 		quiz_shuffle = randomize_array(bd_quiz_3.bd)
 		Gamehandler.puntos = 0
+		Gamehandler.npregunta = 0
 		Gamehandler.update_puntos()
 		load_quiz()	
 	
@@ -131,21 +134,29 @@ func buttons_answer(button) -> void:
 		if Gamehandler.tiempo <= 12:
 			if bd_quiz.bd[index].correct == button.text:
 				Gamehandler.puntos += 100
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_wrong
 				
 		elif Gamehandler.tiempo > 12: 
 			if bd_quiz.bd[index].correct == button.text:
 				Gamehandler.puntos += 40
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_wrong					 		
 					
 
@@ -166,21 +177,29 @@ func buttons_answer(button) -> void:
 		if Gamehandler.tiempo <= 12:
 			if bd_quiz_2.bd[index].correct == button.text:
 				Gamehandler.puntos += 100
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_wrong
 				
 		elif Gamehandler.tiempo > 12: 
 			if bd_quiz_2.bd[index].correct == button.text:
 				Gamehandler.puntos += 40
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_wrong					 		
 					
 
@@ -201,21 +220,29 @@ func buttons_answer(button) -> void:
 		if Gamehandler.tiempo <= 12:
 			if bd_quiz_3.bd[index].correct == button.text:
 				Gamehandler.puntos += 100
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_wrong
 				
 		elif Gamehandler.tiempo > 12: 
 			if bd_quiz_3.bd[index].correct == button.text:
 				Gamehandler.puntos += 40
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_right
 			else:
 				Gamehandler.puntos += 0
+				Gamehandler.npregunta += 1
 				Gamehandler.update_puntos()
+				Gamehandler.update_npregunta()
 				button.modulate = color_wrong					 		
 					
 

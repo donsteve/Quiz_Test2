@@ -5,6 +5,7 @@ var counterhangedgame
 var vidas_jugador = 5
 var time_left = 60
 var tiempo = 0
+var npregunta = 0
 # Luego de pasados 4 minutos desde la pérdida de una vida se repondrá la vida perdida.
 var life_recharge = 20
 var puntajeglobal = 0
@@ -58,6 +59,10 @@ func disminuir_tiempo():
 
 func update_puntos():
 	get_tree().get_nodes_in_group("puntos")[0].text = String(puntos)
+	
+#########Esta funcion actualiza el numero de pregunta en pantalla###########################
+func update_npregunta():
+	get_tree().get_nodes_in_group("npregunta")[0].text = String(npregunta)	
 	
 func perder_vida():
 	Gamehandler.vidas_jugador -= 1

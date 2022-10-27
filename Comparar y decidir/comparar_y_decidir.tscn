@@ -69,3 +69,25 @@ margin_bottom = 420.0
 rect_min_size = Vector2( 300, 200 )
 
 [node name="top_bar_minigames" parent="." instance=ExtResource( 5 )]
+
+[node name="ntexto_pregunta" type="Label" parent="."]
+margin_left = 375.0
+margin_top = 57.0
+margin_right = 415.0
+margin_bottom = 85.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "- 5"
+
+[node name="numero_pregunta" type="Label" parent="." groups=["npregunta"]]
+margin_left = 360.0
+margin_top = 57.0
+margin_right = 378.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+autowrap = true

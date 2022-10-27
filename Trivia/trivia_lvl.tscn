@@ -72,6 +72,7 @@ custom_fonts/font = ExtResource( 1 )
 custom_styles/normal = SubResource( 7 )
 align = 1
 valign = 1
+autowrap = true
 
 [node name="question_holder" type="VBoxContainer" parent="."]
 margin_left = 58.0
@@ -139,6 +140,28 @@ margin_left = 200.0
 margin_top = 645.0
 margin_right = 247.0
 margin_bottom = 673.0
+
+[node name="ntexto_pregunta" type="Label" parent="GUI"]
+margin_left = 375.0
+margin_top = 57.0
+margin_right = 415.0
+margin_bottom = 85.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "- 5"
+
+[node name="numero_pregunta" type="Label" parent="GUI" groups=["npregunta"]]
+margin_left = 360.0
+margin_top = 57.0
+margin_right = 378.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+autowrap = true
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
