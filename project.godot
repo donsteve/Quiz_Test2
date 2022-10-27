@@ -12,34 +12,34 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "BDCyd",
 "language": "GDScript",
-"path": "res://Comparar y decidir/recursos/bd_cyd.gd"
+"path": "res://Comparar y decidir/scripts/resources/bd_cyd.gd"
 }, {
 "base": "Resource",
 "class": "BDQuiz",
 "language": "GDScript",
-"path": "res://scripts/resources/bd_quiz.gd"
+"path": "res://Trivia/scripts/resources/bd_quiz.gd"
 }, {
 "base": "Resource",
-"class": "Cyd_Question",
+"class": "CydQuestion",
 "language": "GDScript",
-"path": "res://Comparar y decidir/recursos/res_cyd.gd"
+"path": "res://Comparar y decidir/scripts/resources/questioncyd.gd"
 }, {
 "base": "Resource",
 "class": "QuizQuestion",
 "language": "GDScript",
-"path": "res://scripts/resources/res_question.gd"
+"path": "res://Trivia/scripts/resources/res_question.gd"
 } ]
 _global_script_class_icons={
 "BDCyd": "",
 "BDQuiz": "",
-"Cyd_Question": "",
+"CydQuestion": "",
 "QuizQuestion": ""
 }
 
 [application]
 
 config/name="Quiz de Prueba"
-run/main_scene="res://Scenes/level_game.tscn"
+run/main_scene="res://Trivia/trivia_lvl.tscn"
 config/icon="res://icon.png"
 
 [autoload]

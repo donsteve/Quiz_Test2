@@ -156,17 +156,19 @@ func _on_Level1_pressed():
 
 
 func _on_Level2_pressed():
-	if(Gamehandler.level1 == false):
-		print("no puedes ingresar")
-	else:
-		get_tree().change_scene("res://Scenes/level_game.tscn")
+	#if(Gamehandler.level1 == false):
+		#print("no puedes ingresar")
+	#else:
+		Gamehandler.niv_quiz = 2
+		get_tree().change_scene("res://Trivia/trivia_lvl.tscn")
 
 
 func _on_Level3_pressed():
-	if(Gamehandler.level2 == false):
-		print("no puedes ingresar")
-	else:
-		get_tree().change_scene("res://hanged_game/Main_hanged_game.tscn")
+	#if(Gamehandler.level2 == false):
+		#print("no puedes ingresar")
+	#else:
+		Gamehandler.niv_cyd = 3
+		get_tree().change_scene("res://Comparar y decidir/comparar_y_decidir.tscn")
 
 
 func _on_Level4_pressed():
@@ -177,10 +179,11 @@ func _on_Level4_pressed():
 
 
 func _on_Level5_pressed():
-	if(Gamehandler.level4 == false):
-		print("no puedes ingresar")
-	else:
-		get_tree().change_scene("res://hanged_game/Main_hanged_game.tscn")
+	#if(Gamehandler.level4 == false):
+		#print("no puedes ingresar")
+	#else:
+		Gamehandler.niv_quiz = 5
+		get_tree().change_scene("res://Trivia/trivia_lvl.tscn")
 
 
 func _on_Level6_pressed():
@@ -198,10 +201,11 @@ func _on_Level7_pressed():
 
 
 func _on_Level8_pressed():
-	if(Gamehandler.level7 == false):
-		print("no puedes ingresar")
-	else:
-		get_tree().change_scene("res://hanged_game/Main_hanged_game.tscn")
+	#if(Gamehandler.level7 == false):
+		#print("no puedes ingresar")
+	#else:
+		Gamehandler.niv_quiz = 8
+		get_tree().change_scene("res://Trivia/trivia_lvl.tscn")
 
 
 func _on_Level9_pressed():

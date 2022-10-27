@@ -31,7 +31,9 @@ var level5 = false
 var level6 = false
 var level7 = false
 var level8 = false
-
+#valida que bd de preguntas se cargaran para quiz y cyd
+var niv_quiz = 0
+var niv_cyd = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
