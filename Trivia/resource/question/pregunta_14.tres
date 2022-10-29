@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = ""
+question_info = "¿Que es el modelo mental para un usuario?"
 type = 0
-options = [ "ll", "lo", "li", "lu" ]
-correct = "lo"
+options = [ "Creencias sobre un sistema o interaccion", "Esquemas sobre cómo funcionan las cosas", "Esquemas de funcionalidad", "Percepcion de uso" ]
+correct = "Creencias sobre un sistema o interaccion"

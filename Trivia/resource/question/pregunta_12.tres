@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = "test"
+question_info = "¿Cuantos tipos de affordance existen?"
 type = 0
-options = [ "q", "w", "e", "h" ]
-correct = "h"
+options = [ "1", "10", "3", "7" ]
+correct = "3"

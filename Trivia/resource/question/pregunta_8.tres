@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = "test"
+question_info = "¿Qué son las heurísticas Nielsen?"
 type = 0
-options = [ "e", "r", "t", "y" ]
-correct = "t"
+options = [ "Métodos de inspección de usabilidad", "Modelos predictivos", "Pruebas de usabilidad ", "Un estandar de medicion de UX" ]
+correct = "Métodos de inspección de usabilidad"

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = "test"
+question_info = "¿A que se refiere la Heuristica de consistencia y estándares?"
 type = 0
-options = [ "b", "n", "m", "k" ]
-correct = "b"
+options = [ "Prevenir errores", "Seguir las convenciones de la plataforma", "Minimizar carga de memoria", "Debe ser eficiente" ]
+correct = "Seguir las convenciones de la plataforma"

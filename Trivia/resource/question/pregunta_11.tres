@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = "test"
+question_info = "¿Que es Affordance?"
 type = 0
-options = [ "p", "l", "pp", "pm" ]
-correct = "pm"
+options = [ "Propiedades de como podria usarse algo", "Propiedades de accesibilidad", "Propiedades de UX", "Interaccion Humano-Sistema" ]
+correct = "Propiedades de como podria usarse algo"

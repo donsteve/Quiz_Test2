@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = "¿Como se abrevia experiencia del usuario?"
+question_info = "¿Que es la Usabilidad del Usuario?"
 type = 0
-options = [ "UX", "CX ", "TX", "UI" ]
-correct = "UX"
+options = [ "Interaccion del usuario con un prodcuto", "Experiencia del usuario", "Interaccion entre Usuario-Sistema", "Todas las anteriores" ]
+correct = "Interaccion del usuario con un prodcuto"

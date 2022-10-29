@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = "test"
+question_info = "¿Cual o cuales corresponden a un tipo de affordance?"
 type = 0
-options = [ "tg", "ty", "tt", "uy" ]
-correct = "uy"
+options = [ "Perceptible", "Oculto", "Falso", "Todas la anteriores" ]
+correct = "Todas la anteriores"

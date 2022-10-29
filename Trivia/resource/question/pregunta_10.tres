@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = "test"
+question_info = "¿Cual no corresponde a una Heuristica de Nielsen?"
 type = 0
-options = [ "6", "7", "8", "u" ]
-correct = "u"
+options = [ "Flexibilidad y eficiencia de uso", "Ayuda y documentacion", "Diseño estetico y minimalista", "Interaccion fisica y ergonomia" ]
+correct = "Interaccion fisica y ergonomia"

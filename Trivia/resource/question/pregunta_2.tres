@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = "¿Cuantas heuristicas de Nielsen existen?"
+question_info = "¿Que es UX?"
 type = 0
-options = [ "10", "3", "25", "2" ]
-correct = "10"
+options = [ "Experiencia del Usuario con un sistema", "Interfaz de usuario", "Experiencia del consumidor", "Ninguna de las anteriores" ]
+correct = "Experiencia del Usuario con un sistema"
