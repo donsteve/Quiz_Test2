@@ -187,10 +187,11 @@ func _on_Level5_pressed():
 
 
 func _on_Level6_pressed():
-	if(Gamehandler.level5 == false):
-		print("no puedes ingresar")
-	else:
-		get_tree().change_scene("res://hanged_game/Main_hanged_game.tscn")
+	#if(Gamehandler.level5 == false):
+		#print("no puedes ingresar")
+	#else:
+		Gamehandler.niv_cyd = 6
+		get_tree().change_scene("res://Comparar y decidir/comparar_y_decidir.tscn")
 
 
 func _on_Level7_pressed():

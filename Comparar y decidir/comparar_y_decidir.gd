@@ -51,7 +51,7 @@ func load_quiz() -> void:
 				else:
 					#asignar puntaje a puntaje global
 					#mostrar ventana que gano
-					_on_Letters_youwin_quiz()			
+					_on_Letters_youwin_quiz_3()			
 								
 				return
 	
@@ -77,7 +77,7 @@ func load_quiz() -> void:
 				else:
 					#asignar puntaje a puntaje global
 					#mostrar ventana que gano
-					_on_Letters_youwin_quiz()			
+					_on_Letters_youwin_quiz_6()			
 								
 				return
 				
@@ -103,7 +103,7 @@ func load_quiz() -> void:
 				else:
 					#asignar puntaje a puntaje global
 					#mostrar ventana que gano
-					_on_Letters_youwin_quiz()			
+					_on_Letters_youwin_quiz_9()			
 								
 				return
 
@@ -282,11 +282,24 @@ func _on_top_bar_minigames_seacaboeltiempo():
 	#emit_signal("game_over")
 	print("se te acabo el tiempo")
 	
-func _on_Letters_youwin_quiz():
+func _on_Letters_youwin_quiz_3():
 	get_tree().change_scene("res://main_map/Main_scene.tscn")
 	print("ganaste")
 	if(Gamehandler.puntos > Gamehandler.pnivel3):
 		Gamehandler.pnivel3 = Gamehandler.puntos
+		
+func _on_Letters_youwin_quiz_6():
+	get_tree().change_scene("res://main_map/Main_scene.tscn")
+	print("ganaste")
+	if(Gamehandler.puntos > Gamehandler.pnivel6):
+		Gamehandler.pnivel5 = Gamehandler.puntos		
+
+func _on_Letters_youwin_quiz_9():
+	get_tree().change_scene("res://main_map/Main_scene.tscn")
+	print("ganaste")
+	if(Gamehandler.puntos > Gamehandler.pnivel9):
+		Gamehandler.pnivel8 = Gamehandler.puntos		
+		
 		
 func _perdiste_por_puntos():
 	Gamehandler.perder_vida()
