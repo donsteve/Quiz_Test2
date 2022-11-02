@@ -8,5 +8,6 @@
 script = ExtResource( 3 )
 
 [node name="background_ahorcado" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="game" parent="." instance=ExtResource( 4 )]

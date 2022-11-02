@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-question_info = "Selecciona la imagen\\nan visualmente correcta"
+question_info = "¿Cuál imagen representa mejor la interfaz de usuario (UI)?"
 type = 1
 options = [ ExtResource( 2 ), ExtResource( 3 ) ]
 correct = ExtResource( 2 )

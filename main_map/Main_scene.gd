@@ -210,10 +210,11 @@ func _on_Level8_pressed():
 
 
 func _on_Level9_pressed():
-	if(Gamehandler.level8 == false):
-		print("no puedes ingresar")
-	else:
-		get_tree().change_scene("res://hanged_game/Main_hanged_game.tscn")
+	#if(Gamehandler.level8 == false):
+	#	print("no puedes ingresar")
+	#else:
+		Gamehandler.niv_cyd = 9
+		get_tree().change_scene("res://Comparar y decidir/comparar_y_decidir.tscn")
 
 
 func _on_tiempo_vidas_timeout():
