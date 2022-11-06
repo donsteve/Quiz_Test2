@@ -1,12 +1,21 @@
 extends Node2D
+var sounds_bus = AudioServer.get_bus_index("Efectos")
+var sounds_bus2 = AudioServer.get_bus_index("Musica")
+export(Texture) var past_level
+export(AudioStream) var music
+onready var new_file = $iniciarNivel
 
+var label_node
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Gamehandler.recargarvidas()
 	Gamehandler.update_vidas()
-	Gamehandler.recharge_life()
 	pintarestrellasmapa()
+	Gamehandler.update_puntajeacumulado()
+	Gamehandler.update_nombrejugador()
+	change_icons()
 	
 	
 func pintarestrellasmapa():
@@ -147,81 +156,172 @@ func paint_starslvl9():
 		$mapa_star/estrellas9/dos/star2.show()
 		$mapa_star/estrellas9/tres/start3.show()
 
+#funciones para cambiar icono de los niveles pasados
+func change_icons():
+	if(Gamehandler.level1 == true):
+		$Level1.texture_normal = past_level
+		$Level1.texture_hover = past_level
+	if(Gamehandler.level2 == true):
+		$Level2.texture_normal = past_level
+		$Level2.texture_hover = past_level
+	if(Gamehandler.level3 == true):
+		$Level3.texture_normal = past_level
+		$Level3.texture_hover = past_level
+	if(Gamehandler.level4 == true):
+		$Level4.texture_normal = past_level
+		$Level4.texture_hover = past_level
+	if(Gamehandler.level5 == true):
+		$Level5.texture_normal = past_level
+		$Level5.texture_hover = past_level
+	if(Gamehandler.level6 == true):
+		$Level6.texture_normal = past_level
+		$Level6.texture_hover = past_level
+	if(Gamehandler.level7 == true):
+		$Level7.texture_normal = past_level
+		$Level7.texture_hover = past_level
+	if(Gamehandler.level8 == true):
+		$Level8.texture_normal = past_level
+		$Level8.texture_hover = past_level
+	if(Gamehandler.level9 == true):
+		$Level9.texture_normal = past_level
+		$Level9.texture_hover = past_level
+
 
 func _on_Level1_pressed():
 	if(Gamehandler.vidas_jugador > 0):
-		get_tree().change_scene("res://hanged_game/Main_hanged_game.tscn")
+		Gamehandler.enquenivelestoy = 1
+		Gamehandler.update_datosdenivel()
+		get_tree().get_nodes_in_group("nogame")[0].hide()
+		get_tree().get_nodes_in_group("sigame")[0].show()
+		new_file.show()
 	else:
-		print("no tienes vidas")
+		get_tree().get_nodes_in_group("nogame")[0].show()
+		get_tree().get_nodes_in_group("sigame")[0].hide()
+		Gamehandler.enquenivelestoy = 1
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 
 
 func _on_Level2_pressed():
-	#if(Gamehandler.level1 == false):
-		#print("no puedes ingresar")
-	#else:
-		Gamehandler.niv_quiz = 2
-		get_tree().change_scene("res://Trivia/trivia_lvl.tscn")
+	if(Gamehandler.vidas_jugador < 1 || Gamehandler.level1 == false):
+		get_tree().get_nodes_in_group("nogame")[0].show()
+		get_tree().get_nodes_in_group("sigame")[0].hide()
+		Gamehandler.enquenivelestoy = 2
+		Gamehandler.update_datosdenivel()
+		new_file.show()
+	else:
+		get_tree().get_nodes_in_group("nogame")[0].hide()
+		get_tree().get_nodes_in_group("sigame")[0].show()
+		Gamehandler.enquenivelestoy = 2
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 
 
 func _on_Level3_pressed():
-	#if(Gamehandler.level2 == false):
-		#print("no puedes ingresar")
-	#else:
-		Gamehandler.niv_cyd = 3
-		get_tree().change_scene("res://Comparar y decidir/comparar_y_decidir.tscn")
+	if(Gamehandler.vidas_jugador < 1 || Gamehandler.level2 == false):
+		get_tree().get_nodes_in_group("nogame")[0].show()
+		get_tree().get_nodes_in_group("sigame")[0].hide()
+		Gamehandler.enquenivelestoy = 3
+		Gamehandler.update_datosdenivel()
+		new_file.show()
+	else:
+		get_tree().get_nodes_in_group("nogame")[0].hide()
+		get_tree().get_nodes_in_group("sigame")[0].show()
+		Gamehandler.enquenivelestoy = 3
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 
 
 func _on_Level4_pressed():
-	if(Gamehandler.level3 == false):
-		print("no puedes ingresar")
+	if(Gamehandler.vidas_jugador < 1 || Gamehandler.level3 == false):
+		get_tree().get_nodes_in_group("nogame")[0].show()
+		get_tree().get_nodes_in_group("sigame")[0].hide()
+		Gamehandler.enquenivelestoy = 4
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 	else:
-		get_tree().change_scene("res://hanged_game/Main_hanged_game.tscn")
+		get_tree().get_nodes_in_group("nogame")[0].hide()
+		get_tree().get_nodes_in_group("sigame")[0].show()
+		Gamehandler.enquenivelestoy = 4
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 
 
 func _on_Level5_pressed():
-	#if(Gamehandler.level4 == false):
-		#print("no puedes ingresar")
-	#else:
-		Gamehandler.niv_quiz = 5
-		get_tree().change_scene("res://Trivia/trivia_lvl.tscn")
+	if(Gamehandler.vidas_jugador < 1 || Gamehandler.level4 == false):
+		get_tree().get_nodes_in_group("nogame")[0].show()
+		get_tree().get_nodes_in_group("sigame")[0].hide()
+		Gamehandler.enquenivelestoy = 5
+		Gamehandler.update_datosdenivel()
+		new_file.show()
+	else:
+		get_tree().get_nodes_in_group("nogame")[0].hide()
+		get_tree().get_nodes_in_group("sigame")[0].show()
+		Gamehandler.enquenivelestoy = 5
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 
 
 func _on_Level6_pressed():
-	#if(Gamehandler.level5 == false):
-		#print("no puedes ingresar")
-	#else:
-		Gamehandler.niv_cyd = 6
-		get_tree().change_scene("res://Comparar y decidir/comparar_y_decidir.tscn")
+	if(Gamehandler.vidas_jugador < 1 || Gamehandler.level5 == false):
+		get_tree().get_nodes_in_group("nogame")[0].show()
+		get_tree().get_nodes_in_group("sigame")[0].hide()
+		Gamehandler.enquenivelestoy = 6
+		Gamehandler.update_datosdenivel()
+		new_file.show()
+	else:
+		get_tree().get_nodes_in_group("nogame")[0].hide()
+		get_tree().get_nodes_in_group("sigame")[0].show()
+		Gamehandler.enquenivelestoy = 6
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 
 
 func _on_Level7_pressed():
-	if(Gamehandler.level6 == false):
-		print("no puedes ingresar")
+	if(Gamehandler.vidas_jugador < 1 || Gamehandler.level6 == false):
+		get_tree().get_nodes_in_group("nogame")[0].show()
+		get_tree().get_nodes_in_group("sigame")[0].hide()
+		Gamehandler.enquenivelestoy = 7
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 	else:
-		get_tree().change_scene("res://hanged_game/Main_hanged_game.tscn")
+		get_tree().get_nodes_in_group("nogame")[0].hide()
+		get_tree().get_nodes_in_group("sigame")[0].show()
+		Gamehandler.enquenivelestoy = 7
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 
 
 func _on_Level8_pressed():
-	#if(Gamehandler.level7 == false):
-		#print("no puedes ingresar")
-	#else:
-		Gamehandler.niv_quiz = 8
-		get_tree().change_scene("res://Trivia/trivia_lvl.tscn")
+	if(Gamehandler.vidas_jugador < 1 || Gamehandler.level7 == false):
+		get_tree().get_nodes_in_group("nogame")[0].show()
+		get_tree().get_nodes_in_group("sigame")[0].hide()
+		Gamehandler.enquenivelestoy = 8
+		Gamehandler.update_datosdenivel()
+		new_file.show()
+	else:
+		get_tree().get_nodes_in_group("nogame")[0].hide()
+		get_tree().get_nodes_in_group("sigame")[0].show()
+		Gamehandler.enquenivelestoy = 8
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 
 
 func _on_Level9_pressed():
-	#if(Gamehandler.level8 == false):
-	#	print("no puedes ingresar")
-	#else:
-		Gamehandler.niv_cyd = 9
-		get_tree().change_scene("res://Comparar y decidir/comparar_y_decidir.tscn")
-
-
-func _on_tiempo_vidas_timeout():
-	if(Gamehandler.life_recharge > 0):
-		Gamehandler.life_recharge -= 1
-		print("life_recharge")
-		Gamehandler.relojderecargarvidas()
+	if(Gamehandler.vidas_jugador < 1 || Gamehandler.level8 == false):
+		get_tree().get_nodes_in_group("nogame")[0].show()
+		get_tree().get_nodes_in_group("sigame")[0].hide()
+		Gamehandler.enquenivelestoy = 9
+		Gamehandler.update_datosdenivel()
+		new_file.show()
 	else:
-		Gamehandler.vidas_jugador += 1
-		Gamehandler.life_recharge = 240
+		get_tree().get_nodes_in_group("nogame")[0].hide()
+		get_tree().get_nodes_in_group("sigame")[0].show()
+		Gamehandler.enquenivelestoy = 9
+		Gamehandler.update_datosdenivel()
+		new_file.show()
+
+
+
+func _on_btn_exit_button_up():
+	new_file.hide()

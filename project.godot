@@ -38,13 +38,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Quiz de Prueba"
-run/main_scene="res://Trivia/trivia_lvl.tscn"
+config/name="Ux Party"
+run/main_scene="res://main/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Gamehandler="*res://gamehandler.gd"
+Userdata="*res://Userdata.gd"
 
 [display]
 
@@ -53,9 +54,17 @@ window/size/height=704
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 
-[gui]
+[editor_plugins]
 
-common/drop_mouse_on_gui_input_disabled=true
+enabled=PoolStringArray( "res://addons/line_edit_+/plugin.cfg" )
+
+[input]
+
+enter_to_map={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 
@@ -63,7 +72,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
-vram_compression/import_etc=true
-vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"

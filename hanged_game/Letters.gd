@@ -2,13 +2,15 @@ extends Node2D
 
 export (String) var input
 var line = preload("res://hanged_game/Letters.tscn")
-onready var apretarletra_s : AudioStreamPlayer = get_node("click_letter")
 
 
 var arr_labels = []
 var alpha = []
 var arr_spaces = []
-var words = ["UX", "EXPERIENCIA"]
+var wordslvl1 = ["USABILIDAD"]
+var wordslvl4 = ["HEURISTICA"]
+var wordslvl7 = ["AFFORDANCE"]
+var definicion
 
 var length
 var temp
@@ -19,9 +21,18 @@ signal youwin
 
 
 func _ready():
-	randomize()
-	input = words[randi() % words.size()]
+	if (Gamehandler.enquenivelestoy == 1):
+		randomize()
+		input = wordslvl1[randi() % wordslvl1.size()]
+	elif (Gamehandler.enquenivelestoy == 4):
+		randomize()
+		input = wordslvl4[randi() % wordslvl4.size()]
+	else:
+		randomize()
+		input = wordslvl7[randi() % wordslvl7.size()]
 	temp = input
+	definicion = capturardefinicion(temp)
+	get_tree().get_nodes_in_group("texthint")[0].text = definicion 
 	arr_labels.clear()
 	alpha.clear()
 	arr_spaces.clear()
@@ -33,6 +44,15 @@ func _ready():
 	temp = temp.replace("/", "")
 	length = temp.length()
 
+func capturardefinicion(temp):
+	var def = ""
+	if(temp == "USABILIDAD"):
+		def = "Capacidad de hacer algo de manera intuitiva y fácil."
+	if(temp == "HEURISTICA"):
+		def = "Es el conjunto de técnicas o métodos para resolver un problema."
+	if(temp == "AFFORDANCE"):
+		def = "Es lo que se puede hacer con un objeto en función de las capacidades del usuario."
+	return def
 
 func initialize():
 	var pos = $start.position
@@ -62,9 +82,8 @@ func not_there():
 
 
 func handle_string(s):
-	apretarletra_s.play()
+	$click.play()
 	var pos = temp.find(s)
-	apretarletra_s.stop()
 	if pos != -1:
 		for i in range(pos, length):
 			if temp.substr(i, 1) == s:
@@ -84,6 +103,5 @@ func win():
 		if i == "/":
 			slash_counter = slash_counter + 1	
 	if slash_counter == length:
-		print("ganaste oezi")
 		emit_signal("youwin")
 

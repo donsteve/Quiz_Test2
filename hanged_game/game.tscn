@@ -1,24 +1,32 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://hanged_game/Teclado.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hanged_game/hangman.tscn" type="PackedScene" id=2]
 [ext_resource path="res://hanged_game/Letters.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/audio/click.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/click.wav" type="AudioStream" id=4]
 [ext_resource path="res://hanged_game/game.gd" type="Script" id=5]
 [ext_resource path="res://hanged_game/Letters.gd" type="Script" id=6]
 [ext_resource path="res://top_bar_hanged_game/top_bar_minigames.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/buttons/sd.png" type="Texture" id=8]
+[ext_resource path="res://assets/buttons/light-bulb.png" type="Texture" id=9]
+[ext_resource path="res://hanged_game/Hint.gd" type="Script" id=10]
+[ext_resource path="res://hanged_game/Hint.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/audio/Grasslands Theme.ogg" type="AudioStream" id=12]
+[ext_resource path="res://menus/assets/musica_pressed.png" type="Texture" id=13]
 
 [node name="game" type="Node2D"]
 script = ExtResource( 5 )
+press_sound = ExtResource( 13 )
 
 [node name="Letters" parent="." instance=ExtResource( 3 )]
 script = ExtResource( 6 )
 
 [node name="start" type="Position2D" parent="Letters"]
-position = Vector2( 29, 557 )
+position = Vector2( 37, 562 )
 
-[node name="click_letter" type="AudioStreamPlayer" parent="Letters"]
+[node name="click" type="AudioStreamPlayer" parent="Letters"]
 stream = ExtResource( 4 )
+bus = "EFECTOS"
 
 [node name="Teclado" parent="." instance=ExtResource( 1 )]
 margin_left = 26.0
@@ -123,8 +131,34 @@ margin_right = 41.0
 margin_right = 41.0
 
 [node name="hangman" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1, 21 )
 
 [node name="top_bar_minigames" parent="." instance=ExtResource( 7 )]
+
+[node name="btn_hint" type="TextureButton" parent="." groups=["hint"]]
+margin_left = 185.0
+margin_top = 99.0
+margin_right = 249.0
+margin_bottom = 163.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+
+[node name="Hint" parent="." instance=ExtResource( 11 )]
+margin_left = 151.0
+margin_top = 93.0
+margin_right = 191.0
+margin_bottom = 133.0
+script = ExtResource( 10 )
+
+[node name="end_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="musicadefondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+bus = "MUSICA"
 
 [connection signal="notthere" from="Letters" to="." method="_on_Letters_notthere"]
 [connection signal="youwin" from="Letters" to="." method="_on_Letters_youwin"]
@@ -155,7 +189,14 @@ margin_right = 41.0
 [connection signal="pressed" from="Teclado/Columna9/Letra_i" to="Letters" method="handle_string" binds= [ "I" ]]
 [connection signal="pressed" from="Teclado/Columna9/Letra_q" to="Letters" method="handle_string" binds= [ "Q" ]]
 [connection signal="pressed" from="Teclado/Columna9/Letra_z" to="Letters" method="handle_string" binds= [ "Z" ]]
-[connection signal="seacaboeltiempo" from="top_bar_minigames" to="." method="_on_top_bar_minigames_seacaboeltiempo"]
+[connection signal="value_changed" from="top_bar_minigames/Menu_ahorcado/MenuAhorcado/TextureRect/VBoxContainer/vGral" to="top_bar_minigames/Menu_ahorcado" method="_on_vGral_value_changed"]
+[connection signal="value_changed" from="top_bar_minigames/Menu_ahorcado/MenuAhorcado/TextureRect/VBoxContainer2/vMusic" to="top_bar_minigames/Menu_ahorcado" method="_on_vMusic_value_changed"]
+[connection signal="value_changed" from="top_bar_minigames/Menu_ahorcado/MenuAhorcado/TextureRect/VBoxContainer3/vEffects" to="top_bar_minigames/Menu_ahorcado" method="_on_vEffects_value_changed"]
+[connection signal="button_up" from="btn_hint" to="Hint" method="_on_btn_hint_button_up"]
+[connection signal="timeout" from="end_timer" to="." method="_on_end_timer_timeout"]
 
 [editable path="Teclado"]
 [editable path="top_bar_minigames"]
+[editable path="top_bar_minigames/Tutorial_ahorcado"]
+[editable path="top_bar_minigames/Menu_ahorcado"]
+[editable path="Hint"]

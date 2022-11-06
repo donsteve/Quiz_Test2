@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://win/hg/2f26222ac6b14270ad71a35c1a4d92aa (4).png" type="Texture" id=2]
+[ext_resource path="res://win/hg/btn_normal.png" type="Texture" id=3]
+[ext_resource path="res://win/hg/btn_pressed.png" type="Texture" id=4]
+[ext_resource path="res://lost/triste.png" type="Texture" id=5]
+[ext_resource path="res://win/hg/imagen1.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/FredokaOne-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://lost/loser.gd" type="Script" id=8]
+[ext_resource path="res://assets/audio/loser (1).wav" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 7 )
+
+[node name="loser" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="fondo" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+
+[node name="box" type="TextureRect" parent="fondo"]
+margin_left = 45.0
+margin_top = 97.0
+margin_right = 399.0
+margin_bottom = 608.0
+texture = ExtResource( 2 )
+
+[node name="caritatriste" type="TextureRect" parent="fondo"]
+margin_left = 160.0
+margin_top = 156.0
+margin_right = 288.0
+margin_bottom = 284.0
+texture = ExtResource( 5 )
+
+[node name="perdiste" type="Label" parent="fondo"]
+margin_left = 160.0
+margin_top = 304.0
+margin_right = 288.0
+margin_bottom = 344.0
+custom_fonts/font = SubResource( 2 )
+text = "Perdiste"
+
+[node name="mensje_loser" type="Label" parent="fondo"]
+margin_left = 109.0
+margin_top = 366.0
+margin_right = 340.0
+margin_bottom = 429.0
+custom_fonts/font = SubResource( 3 )
+text = "¡No te desanimes e
+inténtalo de nuevo!"
+align = 1
+valign = 1
+
+[node name="btn_volver" type="TextureButton" parent="fondo"]
+margin_left = 116.0
+margin_top = 482.0
+margin_right = 336.0
+margin_bottom = 543.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+
+[node name="etiqueta" type="Label" parent="fondo/btn_volver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -85.0
+margin_top = -11.5
+margin_right = 85.0
+margin_bottom = 11.5
+custom_fonts/font = SubResource( 1 )
+text = "Volver al minimapa"
+
+[node name="loser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+
+[connection signal="button_up" from="fondo/btn_volver" to="." method="_on_btn_volver_button_up"]
